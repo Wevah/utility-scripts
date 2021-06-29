@@ -26,7 +26,7 @@ else { die "Unknown style value.\n" }
 while (my $line = <$fh>) {
 	next if $stripblanks && $line =~ m/^\s+$/;
 	
-	$line =~ s/(")/\\$1/g;
+	$line =~ s/(["\\])/\\$1/g;
 	$line =~ s/\n/\\n/g;
 	
 	print qq/$start$line$end\\\n/;
